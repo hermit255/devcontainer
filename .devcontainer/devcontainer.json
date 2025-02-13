@@ -1,0 +1,60 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/go
+{
+	// requrired: sudo docker build . -t devcontainer
+	"name": "devcontainer",
+	"image": "devcontainer",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	// "dockerFile": "Dockerfile",
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+  	"features": {
+  	  "docker-from-docker": {
+  	    "version": "latest"
+  	  }
+	},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			"settings": {},
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				// go
+				"golang.go", // go
+				// gofmt
+				// php
+				"sanderronde.phpstan-vscode", // phpstan
+				// plantuml
+				"jebbs.plantuml",
+				// markdownPerviewEnhance
+				"shd101wyy.markdown-preview-enhanced",
+				// markdownTable
+				"csholmq.excel-to-markdown-table",
+				// general
+				"ms-azuretools.vscode-docker" // docker
+			],
+			"markdown-preview-enhanced.plantumlJarPath": "/usr/share/plantuml/plantuml.jar",
+		}
+	},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [9000],
+	"forwardPorts": [9000],
+
+	// Use 'portsAttributes' to set default properties for specific forwarded ports. 
+	// More info: https://containers.dev/implementors/json_reference/#port-attributes
+	"portsAttributes": {
+		"9000": {
+			"label": "Hello Remote World",
+			"onAutoForward": "notify"
+		}
+	}
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "go version",
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
+}
